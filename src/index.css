@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 97%;
+    --foreground: 240 27% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 27% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 27% 14%;
+    --primary: 47 100% 50%;
+    --primary-foreground: 240 27% 14%;
+    --secondary: 217 19% 95%;
+    --secondary-foreground: 240 27% 14%;
+    --muted: 217 19% 95%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 49 92% 53%;
+    --accent-foreground: 240 27% 14%;
+    --destructive: 349 51% 47%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 47 100% 50%;
+    --radius: 0.5rem;
+    --font-heading: ui-sans-serif, system-ui, sans-serif;
+    --font-body: ui-sans-serif, system-ui, sans-serif;
+    --font-display: ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-bg: 0 0% 100%;
+    --sidebar-fg: 240 27% 14%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-hover: 217 19% 95%;
+  }
+
+  .dark {
+    --background: 240 27% 7%;
+    --foreground: 240 20% 97%;
+    --card: 240 27% 11%;
+    --card-foreground: 240 20% 97%;
+    --popover: 240 27% 11%;
+    --popover-foreground: 240 20% 97%;
+    --primary: 47 100% 55%;
+    --primary-foreground: 240 27% 14%;
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 240 20% 97%;
+    --muted: 240 10% 16%;
+    --muted-foreground: 217 11% 65%;
+    --accent: 49 92% 53%;
+    --accent-foreground: 240 27% 14%;
+    --destructive: 349 51% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 47 100% 55%;
+    --sidebar-bg: 240 27% 9%;
+    --sidebar-fg: 240 20% 97%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-hover: 240 10% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground transition-all duration-150 hover:bg-secondary hover:text-foreground;
+  }
+
+  .nav-link-active {
+    @apply bg-primary/10 text-primary hover:bg-primary/15 hover:text-primary;
+  }
+
+  .stat-card {
+    @apply bg-card rounded-xl p-6 border border-border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/30;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-left px-4 py-3 font-semibold text-muted-foreground text-xs uppercase tracking-wider border-b border-border whitespace-nowrap cursor-pointer select-none hover:text-foreground transition-colors;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-b border-border whitespace-nowrap;
+  }
+
+  .data-table tbody tr {
+    @apply transition-colors duration-100 hover:bg-secondary/50;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 rounded-lg bg-background border border-input text-sm text-foreground placeholder:text-muted-foreground/50 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold transition-all duration-150 hover:opacity-90 active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground text-sm font-semibold transition-all duration-150 hover:bg-secondary/70 active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground transition-all duration-150 hover:bg-secondary hover:text-foreground;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-destructive transition-all duration-150 hover:bg-destructive/10 active:scale-95;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+}
